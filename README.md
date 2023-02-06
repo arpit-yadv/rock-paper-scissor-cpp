@@ -4,13 +4,15 @@ This is an extremely simple RockPaperScissors Game I made.
 
 Download the repo, compile and run it:
 ```
-$git clone 
-$cd to the directory
+$git clone https://github.com/arpit-yadv/rock-paper-scissor-cpp
+$cd rock-paper-scissor-cpp
 $make
 ```
 
 
 It has two modes, regular and Spock/Lizard, that a user can switch between.
+I have added Spock/Lizard mode to the Game to see how extensible the code is and more importantly because I am a fan of TV Series Big Bang Theory lol.
+![SpockLizard1](https://user-images.githubusercontent.com/44285753/217080360-4c37c0ba-12a2-4c0d-be77-0745f67b8ad8.jpeg)
 
 ### Overview
 
@@ -47,7 +49,7 @@ As this class contains virtual functions, a virtual destructor will be included.
 SpockLizard inherits from the base class RockPaperScissors. It calls the RockPaperScissors constructor to initialize.
 It has additional input options allowListed so that they can also be considered for the result and result is fetch from the resultMatrix.
 
-It overrides the 2 virtual functions of class Calculator. `welcome()` is overridden to show all the options for the scientific calculator, and `parseInput()` is overridden to access the additional Options like Spock and Lizard.
+It overrides the 3 virtual functions of class RockPaperScissors. `welcome()` is overridden to show all the options for the SpockLizard, `initializeResultMatrix()` and `initializeChoices()` is overridden to add the additional Options like Spock and Lizard.
 
 A virtual destructor is also included.
 
@@ -62,3 +64,5 @@ This simplifies the main code as the statement `rpsPtr->welcome()` will automati
 #### Nifty Features
 
 1. Users are able to enter a diff inputs that correspond to each option. For example: “1”, “Rock”, trigger the submits the same option.
+2. Spock/Lizard Addon is inspired by - https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock
+3. Complexity of this project is currently O(n^2) for initialization of resultMatrix data and then O(n) for each next Game. it can further be reduced to O(1) if we remove the nifty feature(1).

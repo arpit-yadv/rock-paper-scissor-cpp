@@ -86,15 +86,17 @@ void RockPaperScissors::showWinner(){
 
 void RockPaperScissors::welcome() const
 {
-    cout << "\n\nWelcome to the Rock Paper Scissors Game!!\n";
+    cout << "\n\n\nWelcome to the Rock Paper Scissors Game Normal Mode!!\n";
     for(int i = 0;i<choices.size();++i){
         cout<<"("<<i+1<<") for "<<choices[i]<<endl;
     }
+    cout<<"or type change to change the mode"<<endl;
     cout<<"or type exit to exit the game"<<endl;
 }
 
 int RockPaperScissors::isValidInput(string input){
-    if(input == "1" || input == "2" || input == "3")
+    char inputMax = '0' + choices.size();
+    if(input.length() == 1 && input[0] >= '1' && input[0] <= inputMax)
         return (int)(input[0]-'1');
     for(int i = 0;i<choices.size();++i){
         if(input==choices[i]){

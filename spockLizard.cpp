@@ -12,10 +12,11 @@ SpockLizard::SpockLizard(): RockPaperScissors(){
 /// Overrided welcome message to show scientific options
 void SpockLizard::welcome() const
 {
-    cout << "\n\nWelcome to the Rock Paper Scissors Game!!\n";
+    cout << "\n\nWelcome to the Rock Paper Scissors Game StarWars Mode!!\n";
     for(int i = 0;i<choices.size();++i){
         cout<<"("<<i+1<<") for "<<choices[i]<<endl;
     }
+    cout<<"or type change to change the mode"<<endl;
     cout<<"or type exit to exit the game"<<endl;
 }
 
@@ -65,25 +66,4 @@ void SpockLizard:: initializeResultMatrix()
 void SpockLizard:: initializeChoices(){
     choices.push_back("Spock");
     choices.push_back("Lizard");
-}
-/// Overridded parse operation to call correct member function
-void SpockLizard::parseInput(const std::string& input)
-{
-    /// Reuse code for all simple RockPaperScissor inputs
-    RockPaperScissors:: parseInput(input);
-    /// If no simple calc match found it will continue below
-    if (input[0] <= '5' && input[0] > '3'){
-        int userInput = input[0]-'1';
-        setUserChoice(userInput);
-        
-        // get computer's choice using random number generator
-        setComputerChoice();
-
-        // display what choices both have made 
-        displayChoices();
-        
-        // decides winner on basis of choices and displays it on terminal
-        showWinner();
-    }
-
 }

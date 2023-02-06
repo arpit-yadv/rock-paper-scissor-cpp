@@ -9,15 +9,15 @@ int main()
 {
 
     /// Initialize simple RockScissorGame and SpockLizard Game.
-    RockPaperScissors calc;
-    SpockLizard sci;
+    RockPaperScissors rps;
+    SpockLizard sl;
 
-    /// Assign calculator pointer to the simple calc object
+    /// Assign rps pointer to the simple rps object
     /// This will be used later for polymorphism
-    RockPaperScissors* rpsPtr = &calc;
+    RockPaperScissors* rpsPtr = &rps;
 
-    /// Switch to flip scientific calc on and off
-    bool sciActive = false;
+    /// Switch to flip SpockLizard Mode on and off
+    bool slActive = false;
 
     cout << "Welcome to my Rock Paper Scissors Game\n"
     << "This game has 2 modes, Normal and Spock/Lizard Mode.\n"
@@ -34,17 +34,17 @@ int main()
         /// Input to switch mode
         if (input == "change")
         {
-            if (sciActive)
+            if (slActive)
             {
                 /// Set pointer to the simple game object
-                rpsPtr = &calc;
-                sciActive = false;
+                rpsPtr = &rps;
+                slActive = false;
                 cout << "\nSimple Mode Activated";
             } else /// sciActive is false
             {
                 /// Set pointer to spock/lizard game object
-                rpsPtr = &sci;
-                sciActive = true;
+                rpsPtr = &sl;
+                slActive = true;
                 cout << "\nStar Wars Mode Activated";
                 
             }
